@@ -79,6 +79,16 @@
       var x = document.getElementById(b.getAttribute("data-box")); if (x) x.classList.toggle("open");
     });
   }
+  /* 메일: 자동 수집기가 주소를 긁어 가지 않도록 "이름 [at] 도메인" 꼴로만 저장·표시하고,
+     누를 때에만 진짜 주소로 바꿔 메일 프로그램을 엽니다. */
+  function mailLink(m, icon) {
+    return '<a href="#" class="mail" data-m="' + esc(m) + '" title="Send email">' + icon + esc(m) + "</a>";
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a.mail[data-m]"); if (!a) return;
+    e.preventDefault();
+    location.href = "mailto:" + a.getAttribute("data-m").replace(/\s*\[at\]\s*/i, "@").replace(/\s*\[dot\]\s*/gi, ".");
+  });
   function timeline(list, when, what, where) {
     return '<ul class="tl">' + list.map(function (x) {
       return '<li><span class="when">' + esc(x[when]) + '</span><span class="what"><b>' + esc(x[what]) + "</b><span>" + esc(x[where]) + "</span></span></li>";
@@ -91,7 +101,7 @@
       var p = D.profile, pub = D.publications;
       var papers = pub.filter(function (x) { return x.type === "journal"; }).sort(byYear).slice(0, 5);
       var talks = pub.filter(function (x) { return x.type === "conference"; }).sort(byYear).slice(0, 5);
-      var links = (p.email ? '<a href="mailto:' + esc(p.email) + '">' + svg("mail") + esc(p.email) + "</a>" : "") +
+      var links = (p.email ? mailLink(p.email, svg("mail")) : "") +
         (p.links || []).filter(function (l) { return l.url; }).map(function (l) {
           return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + svg(iconFor(l.label)) + esc(l.label) + "</a>";
         }).join("");
@@ -155,7 +165,7 @@
       var p = D.profile;
       $("app").innerHTML = pageHead("Contact") + '<div class="contact">' +
         "<div><h3>Office</h3><p>" + esc(p.department) + "<br>" + esc(p.address) + "</p></div>" +
-        (p.email ? '<div><h3>Email</h3><p><a href="mailto:' + esc(p.email) + '">' + esc(p.email) + "</a></p></div>" : "") +
+        (p.email ? "<div><h3>Email</h3><p>" + mailLink(p.email, "") + "</p></div>" : "") +
         '<div><h3>Research team</h3><p><a href="https://knu-ctl.github.io/" target="_blank" rel="noopener">KNU Coding Theory Team</a></p></div>' +
         "<div><h3>Prospective students</h3><p>Students interested in coding theory and quantum information are welcome to get in touch.</p></div></div>";
     }

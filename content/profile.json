@@ -5,7 +5,7 @@
   "department": "Department of Mathematics",
   "institution": "Kangwon National University",
   "address": "Room 213, Natural Sciences Building 5, Kangwon National University, Chuncheon Campus",
-  "email": "whchoi@kangwon.ac.kr",
+  "email": "whchoi [at] kangwon.ac.kr",
   "photo": "/media/profile.jpg",
   "bio": "I am an assistant professor in the Department of Mathematics at Kangwon National University, where I lead the KNU Coding Theory Team. My research is centered on algebraic coding theory: linear codes over finite fields and finite rings, self-dual codes, and other codes with rich algebraic structure. Building on this structure, I study deletion-correcting codes, DNA codes for DNA-based data storage, and quantum information theory, including quantum error correction and quantum circuits. I design codes with tools from algebra and combinatorics and verify them by computation in Magma and Python.",
   "interests": [

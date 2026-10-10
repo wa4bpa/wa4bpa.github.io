@@ -21,7 +21,7 @@ content:
       - { name: department, label: "Department", type: string }
       - { name: institution, label: "Institution", type: string }
       - { name: address, label: "Office address", type: string }
-      - { name: email, label: "Email (공개됨)", type: string }
+      - { name: email, label: "Email (스팸 방지: whchoi [at] kangwon.ac.kr 꼴로 적기)", type: string }
       - { name: photo, label: "Photo", type: image }
       - { name: bio, label: "About (빈 줄로 문단 나눔)", type: text }
       - { name: interests, label: "Research interests (짧은 말)", type: string, list: true }
