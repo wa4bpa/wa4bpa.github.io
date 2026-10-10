@@ -1,0 +1,46 @@
+[
+  {
+    "id": "coding",
+    "title": "Error-Correcting Codes",
+    "short": "Protecting information against noise and erasures",
+    "detail": "Bits are flipped or lost all the time in communication channels and storage devices. Error-correcting codes add redundancy so that the receiver can detect and correct errors on its own.\n\nWe construct good codes using algebraic structures over finite fields and rings, and study the fundamental trade-offs among size, distance, and rate. Beyond substitution errors, we also study harder error models such as deletions.",
+    "keywords": [
+      "Algebraic codes",
+      "Bounds",
+      "Deletion channels"
+    ]
+  },
+  {
+    "id": "quantum",
+    "title": "Quantum Information",
+    "short": "Codes and cryptography for quantum computing and communication",
+    "detail": "Qubits in a quantum computer are easily disturbed by tiny interactions with their environment. Quantum error-correcting codes spread information over many qubits and protect it throughout a computation.\n\nWe bring methods from classical coding theory to quantum error-correcting codes and their encoding circuits, and we also study quantum key distribution, whose security rests on the laws of quantum mechanics.",
+    "keywords": [
+      "Quantum error correction",
+      "Quantum circuits",
+      "Quantum key distribution"
+    ]
+  },
+  {
+    "id": "dna",
+    "title": "DNA Codes",
+    "short": "Coding for DNA-based data storage",
+    "detail": "DNA is a next-generation storage medium that can hold enormous amounts of data in a tiny volume for a long time. However, synthesis and sequencing introduce substitutions, deletions, and insertions, and certain base patterns are hard to handle.\n\nWe study DNA codes that correct these errors while satisfying biochemical constraints, using insertion/deletion-correcting codes and constrained codes as main tools.",
+    "keywords": [
+      "DNA storage",
+      "Insertion/deletion codes",
+      "Constrained codes"
+    ]
+  },
+  {
+    "id": "algebra",
+    "title": "Algebra & Combinatorics",
+    "short": "The mathematics behind coding theory",
+    "detail": "The existence and construction of good codes are deeply tied to algebraic structures such as finite fields, rings, and groups, and to combinatorial objects such as graphs and designs.\n\nWe work on algebraic and combinatorial problems that arise in coding theory, as well as mathematical problems that can be approached with coding-theoretic methods.",
+    "keywords": [
+      "Finite fields & rings",
+      "Graph theory",
+      "Designs"
+    ]
+  }
+]

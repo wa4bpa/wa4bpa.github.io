@@ -1,0 +1,91 @@
+# Pages CMS 설정 (https://pagescms.org/docs/configuration/)
+# app.pagescms.org 에 GitHub 계정으로 들어가 wa4bpa/wa4bpa.github.io 를 고르면 아래 항목이 입력 양식으로 나타납니다.
+# 이 저장소는 공개됩니다. 공개해도 되는 내용만 적습니다(휴대전화·진행 중인 세부 연구 등은 적지 않음).
+
+media:
+  input: media
+  output: /media
+  rename: safe
+  categories: [image, document]
+
+content:
+  - name: profile
+    label: "Profile (이름·직위·소개·약력·학력·링크)"
+    type: file
+    path: content/profile.json
+    format: json
+    fields:
+      - { name: name, label: "Name", type: string, required: true }
+      - { name: name_native, label: "Name in Korean (선택)", type: string }
+      - { name: title, label: "Title (예: Assistant Professor)", type: string }
+      - { name: department, label: "Department", type: string }
+      - { name: institution, label: "Institution", type: string }
+      - { name: address, label: "Office address", type: string }
+      - { name: email, label: "Email (공개됨)", type: string }
+      - { name: photo, label: "Photo", type: image }
+      - { name: bio, label: "About (빈 줄로 문단 나눔)", type: text }
+      - { name: interests, label: "Research interests (짧은 말)", type: string, list: true }
+      - name: links
+        label: "Links (주소가 빈 줄은 화면에 나오지 않음)"
+        type: object
+        list: true
+        fields:
+          - { name: label, label: "Label", type: string }
+          - { name: url, label: "URL", type: string }
+      - name: positions
+        label: "Positions"
+        type: object
+        list: true
+        fields:
+          - { name: period, label: "Period (예: 2023 – present)", type: string }
+          - { name: role, label: "Role", type: string }
+          - { name: place, label: "Place", type: string }
+      - name: education
+        label: "Education"
+        type: object
+        list: true
+        fields:
+          - { name: year, label: "Year", type: string }
+          - { name: degree, label: "Degree", type: string }
+          - { name: place, label: "Place", type: string }
+
+  - name: research
+    label: "Research areas"
+    type: file
+    path: content/research.json
+    format: json
+    list: true
+    fields:
+      - { name: id, label: "id (영문, 바꾸지 마세요)", type: string }
+      - { name: title, label: "Title", type: string }
+      - { name: short, label: "One-line summary", type: string }
+      - { name: detail, label: "Details (빈 줄로 문단 나눔)", type: text }
+      - { name: keywords, label: "Keywords", type: string, list: true }
+
+  - name: publications
+    label: "Publications & activities (논문·발표·특허·과제·수상)"
+    type: file
+    path: content/publications.json
+    format: json
+    list: true
+    fields:
+      - name: type
+        label: "Type"
+        type: select
+        options:
+          values:
+            - { name: journal, label: "Journal / preprint" }
+            - { name: conference, label: "Talk" }
+            - { name: patent, label: "Patent" }
+            - { name: grant, label: "Grant" }
+            - { name: award, label: "Award" }
+      - { name: year, label: "Year", type: number }
+      - { name: title, label: "Title", type: string }
+      - { name: authors, label: "Authors (특허는 발명자)", type: string }
+      - { name: venue, label: "Journal / meeting / number / agency", type: string }
+      - { name: doi, label: "DOI URL", type: string }
+      - { name: arxiv, label: "arXiv URL", type: string }
+      - { name: pdf, label: "PDF URL", type: string }
+      - { name: link, label: "Other link", type: string }
+      - { name: abstract, label: "Abstract", type: text }
+      - { name: bibtex, label: "BibTeX", type: text }

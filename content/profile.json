@@ -1,0 +1,84 @@
+{
+  "name": "Whan-Hyuk Choi",
+  "name_native": "최환혁",
+  "title": "Assistant Professor",
+  "department": "Department of Mathematics",
+  "institution": "Kangwon National University",
+  "address": "Room 213, Natural Sciences Building 5, Kangwon National University, Chuncheon Campus",
+  "email": "whchoi@kangwon.ac.kr",
+  "photo": "/media/profile.jpg",
+  "bio": "I am an assistant professor in the Department of Mathematics at Kangwon National University, where I lead the KNU Coding Theory Team. My research is centered on algebraic coding theory: linear codes over finite fields and finite rings, self-dual codes, and other codes with rich algebraic structure. Building on this structure, I study deletion-correcting codes, DNA codes for DNA-based data storage, and quantum information theory, including quantum error correction and quantum circuits. I design codes with tools from algebra and combinatorics and verify them by computation in Magma and Python.",
+  "interests": [
+    "Algebraic coding theory",
+    "Deletion codes",
+    "DNA codes",
+    "Quantum information"
+  ],
+  "links": [
+    {
+      "label": "KNU Coding Theory Team",
+      "url": "https://knu-ctl.github.io/"
+    },
+    {
+      "label": "arXiv",
+      "url": ""
+    },
+    {
+      "label": "Google Scholar",
+      "url": ""
+    },
+    {
+      "label": "ORCID",
+      "url": ""
+    }
+  ],
+  "positions": [
+    {
+      "period": "2023 – present",
+      "role": "Assistant Professor",
+      "place": "Department of Mathematics, Kangwon National University, Chuncheon, Korea"
+    },
+    {
+      "period": "2021 – present",
+      "role": "Committee Secretary",
+      "place": "Coding Theory Committee, Korean Society for Industrial and Applied Mathematics (KSIAM)"
+    },
+    {
+      "period": "2021 – 2023",
+      "role": "Visiting Professor",
+      "place": "Department of Biomedical Engineering, UNIST, Ulsan, Korea"
+    },
+    {
+      "period": "2020 – 2021",
+      "role": "Research Associate",
+      "place": "Department of Mathematics, Sogang University, Seoul, Korea"
+    },
+    {
+      "period": "2018 – 2019",
+      "role": "Research Professor",
+      "place": "Department of Mathematics, Kangwon National University, Chuncheon, Korea"
+    },
+    {
+      "period": "2012 – 2020",
+      "role": "Lecturer",
+      "place": "Department of Mathematics, Kangwon National University, Chuncheon, Korea"
+    }
+  ],
+  "education": [
+    {
+      "year": "2017",
+      "degree": "Ph.D. in Mathematics (Algebraic Coding Theory)",
+      "place": "Kangwon National University, Chuncheon, Korea"
+    },
+    {
+      "year": "2011",
+      "degree": "M.S. in Mathematics (Algebraic Coding Theory)",
+      "place": "Kangwon National University, Chuncheon, Korea"
+    },
+    {
+      "year": "2001",
+      "degree": "B.S. in Mechanical and Aerospace Engineering",
+      "place": "Seoul National University, Seoul, Korea"
+    }
+  ]
+}

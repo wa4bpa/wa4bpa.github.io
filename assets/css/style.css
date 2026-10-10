@@ -1,0 +1,102 @@
+/* =====================================================================
+   Whan-Hyuk Choi — personal homepage (v1, 2026-10-10)
+   한 쪽짜리 학술 홈페이지. 왼쪽 프로필 카드(넓은 화면에서 따라 내려옴) + 오른쪽 본문.
+   색은 :root 변수에서 바꿉니다. 연구실 홈페이지(남색)와 구별되게 짙은 청록을 씁니다.
+   ===================================================================== */
+:root {
+  --bg: #fbfaf7; --card: #ffffff; --soft: #f2f0ea;
+  --text: #1c1f24; --muted: #5d6470; --faint: #98a0ab; --line: #e4e1d8;
+  --accent: #0f5c6e; --accent-soft: #e3eff1;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --maxw: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14171b; --card: #1b1f24; --soft: #22272d; --text: #e7e9ec; --muted: #a3aab4; --faint: #6f7782;
+          --line: #2e343b; --accent: #6cc3d5; --accent-soft: #1d3238; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* top bar */
+.topbar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topbar-in { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.brand { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--text); }
+.brand:hover { text-decoration: none; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { color: var(--muted); font-size: 14.5px; padding: 6px 10px; border-radius: 8px; }
+nav a:hover, nav a.on { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+
+/* layout */
+.layout { display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding-top: 40px; padding-bottom: 40px; }
+.profile { position: sticky; top: 92px; align-self: start; text-align: center; }
+.profile img { width: 180px; height: 180px; object-fit: cover; object-position: center 20%; border-radius: 50%; border: 4px solid var(--card); box-shadow: 0 4px 18px rgba(0,0,0,.10); }
+.profile h1 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.25; margin: 18px 0 2px; }
+.profile .native { color: var(--muted); font-size: 15px; }
+.profile .role { margin-top: 10px; font-size: 15px; color: var(--muted); line-height: 1.5; }
+.profile .role b { color: var(--text); font-weight: 600; }
+.profile .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 16px 0; }
+.chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.profile .plinks { display: grid; gap: 6px; font-size: 14.5px; }
+
+main section { padding: 8px 0 36px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+main section:last-child { border-bottom: 0; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 25px; margin: 0 0 16px; letter-spacing: -.005em; }
+h3 { font-size: 16px; margin: 0 0 4px; }
+p { margin: 0 0 12px; }
+
+/* research cards */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.card .short { color: var(--muted); font-size: 14.5px; margin-bottom: 8px; }
+.card details summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+.card details p { font-size: 14.5px; margin-top: 8px; }
+.card .kw { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+.card .kw span { font-size: 12px; color: var(--muted); border: 1px solid var(--line); padding: 1px 8px; border-radius: 999px; }
+
+/* publications */
+.pub-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--muted); cursor: pointer; }
+.tabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tabs button .n { opacity: .7; margin-left: 4px; }
+#pub-search { font: inherit; font-size: 14px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--text); min-width: 240px; }
+.year { font-family: var(--serif); font-size: 18px; color: var(--faint); margin: 18px 0 6px; }
+.pub { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 10px 0; border-top: 1px dashed var(--line); }
+.pub:first-of-type { border-top: 0; }
+.tag { align-self: start; font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; text-align: center; padding: 2px 6px; border-radius: 6px; background: var(--soft); color: var(--muted); }
+.tag.journal { background: var(--accent-soft); color: var(--accent); }
+.pub .t { font-weight: 600; line-height: 1.45; }
+.pub .a { font-size: 14.5px; color: var(--muted); }
+.pub .a .me { color: var(--text); font-weight: 600; }
+.pub .v { font-size: 14.5px; font-style: italic; color: var(--muted); }
+.pub .ln { margin-top: 3px; display: flex; gap: 6px; flex-wrap: wrap; }
+.pub .ln a { font-size: 12px; border: 1px solid var(--line); border-radius: 6px; padding: 0 7px; }
+.empty { color: var(--faint); }
+
+/* cv */
+.tl { list-style: none; margin: 0 0 18px; padding: 0; }
+.tl li { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 6px 0; }
+.tl .when { color: var(--faint); font-variant-numeric: tabular-nums; font-size: 14.5px; }
+.tl .what b { font-weight: 600; }
+.tl .what span { display: block; color: var(--muted); font-size: 14.5px; }
+
+.foot { color: var(--faint); font-size: 13px; padding-top: 10px; padding-bottom: 40px; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+  .profile { position: static; }
+  .cards { grid-template-columns: 1fr; }
+  nav a { padding: 5px 7px; font-size: 13.5px; }
+  .brand { display: none; }
+}
+@media (max-width: 520px) {
+  .pub { grid-template-columns: 1fr; gap: 4px; }
+  .tag { justify-self: start; }
+  .tl li { grid-template-columns: 1fr; gap: 0; }
+  #pub-search { min-width: 0; width: 100%; }
+}
