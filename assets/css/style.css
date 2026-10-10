@@ -1,6 +1,6 @@
 /* =====================================================================
-   Whan-Hyuk Choi — personal homepage (v1, 2026-10-10)
-   한 쪽짜리 학술 홈페이지. 왼쪽 프로필 카드(넓은 화면에서 따라 내려옴) + 오른쪽 본문.
+   Whan-Hyuk Choi — personal homepage (v2, 2026-10-10: 메뉴별 페이지)
+   Home 은 왼쪽 프로필 카드 + 오른쪽 소개·연구 분야·최근 논문, 나머지 쪽은 제목 + 본문 한 단.
    색은 :root 변수에서 바꿉니다. 연구실 홈페이지(남색)와 구별되게 짙은 청록을 씁니다.
    ===================================================================== */
 :root {
@@ -16,7 +16,7 @@
           --line: #2e343b; --accent: #6cc3d5; --accent-soft: #1d3238; }
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -31,8 +31,12 @@ nav { display: flex; gap: 4px; flex-wrap: wrap; }
 nav a { color: var(--muted); font-size: 14.5px; padding: 6px 10px; border-radius: 8px; }
 nav a:hover, nav a.on { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
 
-/* layout */
-.layout { display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding-top: 40px; padding-bottom: 40px; }
+/* page */
+.page { padding-top: 40px; padding-bottom: 40px; min-height: 70vh; }
+.page-head { margin-bottom: 26px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.page-head h1 { font-family: var(--serif); font-weight: 600; font-size: 34px; margin: 0 0 6px; letter-spacing: -.01em; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 12px; }
+.home { display: grid; grid-template-columns: 280px 1fr; gap: 52px; }
 .profile { position: sticky; top: 92px; align-self: start; text-align: center; }
 .profile img { width: 180px; height: 180px; object-fit: cover; object-position: center 20%; border-radius: 50%; border: 4px solid var(--card); box-shadow: 0 4px 18px rgba(0,0,0,.10); }
 .profile h1 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.25; margin: 18px 0 2px; }
@@ -43,8 +47,24 @@ nav a:hover, nav a.on { color: var(--accent); background: var(--accent-soft); te
 .chip { font-size: 12.5px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
 .profile .plinks { display: grid; gap: 6px; font-size: 14.5px; }
 
-main section { padding: 8px 0 36px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+main section { padding: 4px 0 30px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
 main section:last-child { border-bottom: 0; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.sec-head a { font-size: 14.5px; }
+/* home: research areas */
+.areas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.areas li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+.areas a { font-weight: 600; }
+.areas span { display: block; color: var(--muted); font-size: 14.5px; }
+/* research page */
+.area { scroll-margin-top: 80px; }
+.area .kw, .card .kw { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+.area .kw span { font-size: 12.5px; color: var(--muted); border: 1px solid var(--line); padding: 1px 9px; border-radius: 999px; }
+/* contact */
+.contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ccard { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.ccard h3 { color: var(--accent); }
+.ccard p { margin: 0; font-size: 15px; }
 h2 { font-family: var(--serif); font-weight: 600; font-size: 25px; margin: 0 0 16px; letter-spacing: -.005em; }
 h3 { font-size: 16px; margin: 0 0 4px; }
 p { margin: 0 0 12px; }
@@ -88,9 +108,11 @@ p { margin: 0 0 12px; }
 .foot { color: var(--faint); font-size: 13px; padding-top: 10px; padding-bottom: 40px; }
 
 @media (max-width: 860px) {
-  .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+  .home { grid-template-columns: 1fr; gap: 24px; }
+  .page { padding-top: 24px; }
   .profile { position: static; }
-  .cards { grid-template-columns: 1fr; }
+  .cards, .areas, .contact { grid-template-columns: 1fr; }
+  .page-head h1 { font-size: 28px; }
   nav a { padding: 5px 7px; font-size: 13.5px; }
   .brand { display: none; }
 }
