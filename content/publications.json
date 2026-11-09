@@ -248,6 +248,19 @@
   },
   {
     "type": "patent",
+    "year": 2026,
+    "title": "Apparatus and Method for Quantum Decoding of Deletion-Error-Correcting Codes",
+    "authors": "Whan-Hyuk Choi, Yoonjin Lee, Hyeonggi Yoo",
+    "venue": "Patent pending (Korea) · Filed Nov. 2026",
+    "doi": "",
+    "pdf": "",
+    "arxiv": "",
+    "link": "",
+    "abstract": "",
+    "bibtex": ""
+  },
+  {
+    "type": "patent",
     "year": 2025,
     "title": "Apparatus and Method for Selective Quantum State Amplification Based on Hamming Weight",
     "authors": "Whan-Hyuk Choi, Jihyeok Kim, Deokgyu Jang",
